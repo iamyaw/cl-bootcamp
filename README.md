@@ -29,6 +29,7 @@ Any system capable of running Ansible, Puppet and git can run the code provided 
  - [Ansible Installation](http://docs.ansible.com/intro_installation.html)
  - [Puppet Installation](https://docs.puppetlabs.com/guides/install_puppet/pre_install.html)
  - [Git Installation](http://git-scm.com/book/en/v2/Getting-Started-Installing-Git)
+
 ### Preparing Your Environment
 
 Install the git and dpkg tools:
