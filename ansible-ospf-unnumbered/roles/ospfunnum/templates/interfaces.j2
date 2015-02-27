@@ -7,7 +7,6 @@ auto lo
 iface lo inet loopback
 
 {% if loopback_ip is defined -%}
-
 auto lo:1
 iface lo:1 inet static
   address {{ loopback_ip }}/32
