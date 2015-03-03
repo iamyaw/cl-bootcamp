@@ -2,26 +2,33 @@
 {% set intvars = interfaces[ansible_hostname] -%}
 {% set loopback_ip = intvars.loopback -%}
 {% set int_unnumbered = intvars.int_unnumbered -%}
-{% set swbridges = intvars.bridges -%}
 
+{% if int_unnumbered is defined -%}
 {% for item in int_unnumbered -%}
 interface {{item }}
   ip ospf network point-to-point
+  ip ospf area 0.0.0.0
 !
 {% endfor -%}
+{% endif -%}
+!
+!
+!
+{% if swbridges.vlan_aware.svi is defined and is_leaf is defined -%}
+{% for item in swbridges.vlan_aware.svi -%}
+interface {{item }}
+  ip ospf network point-to-point
+  ip ospf area 0.0.0.0
+!
+{% endfor -%}
+{% endif -%}
 !
 router-id {{ loopback_ip }}
 router ospf
-  auto-cost reference-bandwidth  40000
   ospf router-id {{ loopback_ip }}
-  passive-interface default
-{% for item in int_unnumbered %}
-  no passive-interface {{ item }}
+{% if swbridges.vlan_aware.svi is defined and is_leaf is defined -%}
+{% for item in swbridges.vlan_aware.svi %}
+  passive-interface {{ item }}
 {% endfor %}
-  network {{ loopback_ip }}/32 area 0.0.0.0
-{% if hostnetranges is defined and is_leaf is defined -%}
-  {% for item in hostnetranges %}
-  network {{ item }} area 0.0.0.0
-  {% endfor %}
 {% endif -%}
 !
