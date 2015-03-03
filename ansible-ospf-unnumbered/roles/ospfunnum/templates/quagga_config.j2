@@ -29,7 +29,8 @@ interface {{item }}
 router-id {{ loopback_ip }}
 router ospf
   ospf router-id {{ loopback_ip }}
-{% if swbridges.vlan_aware.svi is defined and is_leaf is defined -%}
+{% if swbridges is defined and is_leaf is defined -%}
+
 {% for item in swbridges.vlan_aware.svi %}
   passive-interface {{ item }}
 {% endfor %}
