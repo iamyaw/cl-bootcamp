@@ -43,9 +43,9 @@ iface {{ swbridges.vlan_aware.name }}
 {% if swbridges.vlan_aware.svi is defined -%}
 {% for name in swbridges.vlan_aware.svi -%}
 
-auto {{ swbridges.vlan_aware.svi.name }}
-iface {{ swbridges.vlan_aware.svi.name }}
-  address {{ swbridges.vlan_aware.svi.name.ip_and_mask }}
+auto {{ name }}
+iface {{ name }}
+  address {{ swbridges.vlan_aware.svi[name].ip_and_mask }}
 
 {% endfor -%}
 {% endif -%}
