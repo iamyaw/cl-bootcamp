@@ -28,6 +28,28 @@ iface {{ item }}
 {% endif -%}
 
 
+{% if swbridges is defined -%}
+
+auto {{ swbridges.vlan_aware[name] }}
+iface {{ swbridges.vlan_aware[name] }}
+  bridge-vlan-aware yes
+  bridge_ports {{ swbridges.vlan_aware.members|join(' ') }}
+  bridge-vids {{swbridges.vlan_aware[vid_start]}}-{{swbridges.vlan_aware[vid_stop]}}
+  bridge-pvid {{swbridges.vlan_aware[pvid]}}
+  bridge_stp on
+  
+
+ 
+{% if swbridges.vlan_aware.svi is defined -%}
+{% for name in swbridges.vlan_aware.svi -%}
+
+auto {{ swbridges.vlan_aware.svi.name }}
+iface {{ swbridges.vlan_aware.svi.name }}
+  address {{ swbridges.vlan_aware.svi.name.ip_and_mask }}
+
+{% endfor -%}
+{% endif -%}
+{% endif -%}
 
 
  
