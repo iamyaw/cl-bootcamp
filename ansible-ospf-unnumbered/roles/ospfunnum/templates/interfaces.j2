@@ -21,6 +21,7 @@ iface eth0 inet dhcp
 auto {{ item }}
 iface {{ item }}
   address {{ loopback_ip }}/32
+  
 {% endfor %}
 {% endif -%}
 
@@ -33,7 +34,6 @@ iface {{ swbridges.vlan_aware.name }}
   bridge-vids {{swbridges.vlan_aware.vid_start}}-{{swbridges.vlan_aware.vid_stop}}
   bridge-pvid {{swbridges.vlan_aware.pvid}}
   bridge_stp on
-  {% endfor -%}
   
 {% if swbridges.vlan_aware.svi is defined -%}
 {% for name in swbridges.vlan_aware.svi }
