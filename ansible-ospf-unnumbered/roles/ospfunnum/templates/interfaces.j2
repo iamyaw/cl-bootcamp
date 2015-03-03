@@ -27,7 +27,6 @@ iface {{ item }}
 {% endfor %}
 {% endif -%}
 
-{% if swbridges.vlan_aware is defined -%}
 
 auto {{ swbridges.vlan_aware[name] }}
 iface {{ swbridges.vlan_aware[name] }}
@@ -39,7 +38,6 @@ iface {{ swbridges.vlan_aware[name] }}
   
 
  
-{% endif -%}
 
 
 
