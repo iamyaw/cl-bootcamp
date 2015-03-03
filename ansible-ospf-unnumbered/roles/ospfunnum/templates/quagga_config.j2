@@ -2,7 +2,9 @@
 {% set intvars = interfaces[ansible_hostname] -%}
 {% set loopback_ip = intvars.loopback -%}
 {% set int_unnumbered = intvars.int_unnumbered -%}
+{% if intvars.bridge is defined -%}
 {% set swbridges = intvars.bridges -%}
+{% endif -%}
 
 {% if int_unnumbered is defined -%}
 {% for item in int_unnumbered -%}
