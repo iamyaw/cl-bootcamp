@@ -36,7 +36,7 @@ iface {{ swbridges.vlan_aware.name }}
   bridge_stp on
   
 {% if swbridges.vlan_aware.svi is defined -%}
-{% for name in swbridges.vlan_aware.svi }
+{% for name in swbridges.vlan_aware.svi -%}
 
 auto {{ swbridges.vlan_aware.svi.name }}
 iface {{ swbridges.vlan_aware.svi.name }}
