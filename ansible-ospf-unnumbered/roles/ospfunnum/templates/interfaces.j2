@@ -34,7 +34,7 @@ auto {{ swbridges.vlan_aware.name }}
 iface {{ swbridges.vlan_aware.name }}
   bridge-vlan-aware yes
   bridge_ports {{ swbridges.vlan_aware.members|join(' ') }}
-  bridge-vids {{swbridges.vlan_awarevid_start}}-{{swbridges.vlan_aware.vid_stop}}
+  bridge-vids {{swbridges.vlan_aware.vid_start}}-{{swbridges.vlan_aware.vid_stop}}
   bridge-pvid {{swbridges.vlan_aware.pvid}}
   bridge_stp on
   
