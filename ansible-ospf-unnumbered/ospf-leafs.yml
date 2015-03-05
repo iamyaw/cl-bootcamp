@@ -1,5 +1,5 @@
 ---
-- hosts: spine
+- hosts: leaf
   user: root
   roles:
     - common
