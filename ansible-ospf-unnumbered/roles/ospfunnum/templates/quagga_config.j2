@@ -8,7 +8,11 @@
 
 {% if int_unnumbered is defined -%}
 {% for item in int_unnumbered -%}
-interface {{item }}
+!
+interface {{lo}}
+  ip ospf network point-to-point
+  ip ospf area 0.0.0.0
+interface {{item}}
   ip ospf network point-to-point
   ip ospf area 0.0.0.0
 !
