@@ -27,10 +27,6 @@ node 'leaf1.lab.local' {
                   'members' => ['swp32s1'] }
     }
     include ospfunnum::role::switchbase
-    class { 'portsconf' :
-      switchtype => '40G',
-      stage      => 'setup',
-    }
 }
 
 node 'leaf2.lab.local' {
@@ -44,10 +40,5 @@ node 'leaf2.lab.local' {
         br1 => {  'address' => '10.4.2.129',
                   'netmask' => '255.255.255.128',
                   'members' => ['swp32s1'] }
-    }
-    include ospfunnum::role::switchbase
-    class { 'portsconf' :
-      switchtype => '40G',
-      stage      => 'setup',
     }
 }
