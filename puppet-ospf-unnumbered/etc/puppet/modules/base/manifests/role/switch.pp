@@ -1,5 +1,5 @@
 class base::role::switch {
-
+include stdlib::stages
   class { 'base::license':
     stage => 'setup',
   }
