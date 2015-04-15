@@ -18,10 +18,6 @@ Primarily the Bootcamp covers material on Ansible and Puppet with OSPF Unnumbere
  
 Instructions for additional demos are hosted on the [Knowledge Base](https://support.cumulusnetworks.com/hc/en-us/sections/200398866-Demos-and-Training).
 
-## Development
-
-Development on the enablement git repo is restricted because the code provided is simply taken from the [cldemo git repo](https://github.com/cumulusnetworks/cldemo) and restructured for a more education friendly environment.  We suggest making changes to the cldemo git repo rather than the education material found here.
-
 ### Requirements
 
 Any system capable of running Ansible, Puppet and git can run the code provided here.
