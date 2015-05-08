@@ -12,9 +12,8 @@ auto eth0
 iface eth0 inet dhcp
 
 {% if switch.bonds is defined -%}
-{% for bond_name in switch.bonds -%}
-{% set bond = bond_name -%}
-{% for interface in bond -%}
+{% for bond_name, bond_attributes in switch.bonds.iteritems() -%}
+{% for interface in bond_attributes.members -%}
 
 auto {{ interface }}
 iface {{ interface }}
